@@ -13,12 +13,14 @@ body {
   /* color: white; */
 }
 
-.ant-card-head-title{
+.ant-card-head-title {
   white-space: pre-wrap !important;
 }
 @media only screen and (max-width: 600px) {
   .login-reverse {
-   flex-direction: column-reverse !important;
+    flex-direction: column-reverse !important;
   }
-
+}
+a:hover {
+  color: #d34936 !important;
 }

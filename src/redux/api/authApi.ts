@@ -31,6 +31,7 @@ const authApi = baseApi.injectEndpoints({
         url: "/auth",
         method: "GET",
       }),
+      keepUnusedDataFor: 0.0001,
       providesTags: ["User"],
     }),
   }),

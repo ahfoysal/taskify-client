@@ -51,12 +51,11 @@ const SignUpPage = () => {
 
       if (!!res.accessToken) {
         toast.success("Successfully Created Account");
-        setUser(res?.user);
-        setSpinning(false);
-
         storeUserInfo({ accessToken: res.accessToken });
+        setUser(res?.user);
+
+        setSpinning(false);
         router.push("/tasks");
-        window.location.reload();
       }
     } catch (err: any) {
       console.log(err);
@@ -88,7 +87,7 @@ const SignUpPage = () => {
 
       // storeUserInfo({ accessToken: response?.data?.data?.accessToken });
 
-      console.log(response?.data?.data, 'data');
+      console.log(response?.data?.data, "data");
     } else {
       setSpinning(false);
     }

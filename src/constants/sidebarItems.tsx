@@ -1,6 +1,6 @@
 import type { MenuProps } from "antd";
 
-import { AppstoreAddOutlined , } from "@ant-design/icons";
+import { AppstoreAddOutlined } from "@ant-design/icons";
 import Link from "next/link";
 export function sidebarItems() {
   type MenuItem = Required<MenuProps>["items"][number];

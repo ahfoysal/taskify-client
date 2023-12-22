@@ -1,9 +1,8 @@
 "use client";
-import { Suspense, createContext } from "react";
+import { createContext } from "react";
 import { ReactNode } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -14,6 +13,8 @@ import toast from "react-hot-toast";
 import { app } from "@/firebase/firebase.config";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { useMeQuery } from "@/redux/api/authApi";
+import useAxiosSecure from "./useAxios";
+import { useRouter } from "next/navigation";
 
 export const AuthContext = createContext<{
   user: IUser | null;
@@ -52,7 +53,6 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [loginChecking, setLoginChecking] = useState(true);
-  const token = getUserInfo();
 
   const googleSignIn = async (): Promise<UserCredential | undefined> => {
     setLoginChecking(false);
@@ -67,8 +67,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       return undefined;
     }
   };
-
-  const { data, isSuccess, isError } = useMeQuery("");
+  const Axios = useAxiosSecure();
+  const token = getUserInfo();
+  const { data, isSuccess, isError, refetch } = useMeQuery("");
   useEffect(() => {
     if (isSuccess) {
       setUser(data?.user);
@@ -83,8 +84,11 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       console.log("not logged in");
       setUser(null);
+      if (token) {
+        refetch();
+      }
     }
-  }, [isSuccess, data, isError]);
+  }, [isSuccess, data, isError, refetch, token]);
 
   const authInfo = {
     user,

@@ -14,6 +14,7 @@ const SideBar = ({
   collapsed: boolean;
   setCollapsed: any;
 }) => {
+  const padding = collapsed ? "50px" : "0px";
   return (
     <Sider
       breakpoint="lg"
@@ -30,7 +31,7 @@ const SideBar = ({
         position: "sticky",
         left: 0,
         top: 0,
-        paddingTop: "50px",
+        paddingTop: padding,
         background: "#121219",
         bottom: 0,
         minHeight: "100vh",
@@ -40,14 +41,14 @@ const SideBar = ({
       {!collapsed && (
         <div className="flex justify-center  py-4 items-center ">
           <Link href={"/"}>
-         
             <Image src={"/logo.png"} alt="logo" width={100} height={60} />
           </Link>{" "}
         </div>
       )}
       <Menu
         theme="dark"
-        mode="inline"
+        color="#D34936"
+        mode="vertical"
         defaultSelectedKeys={["1"]}
         items={sidebarItems()}
       />

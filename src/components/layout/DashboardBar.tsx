@@ -20,10 +20,11 @@ const DashboardBar = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!loginChecking && !user) {
+    if (!user) {
       router.replace("/login");
       console.log("not logged in.");
     }
+
     if (user) {
       console.log("logged in");
     }

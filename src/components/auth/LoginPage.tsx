@@ -32,9 +32,10 @@ const LoginPage = () => {
   const Axios = useAxiosSecure();
   const router = useRouter();
   useEffect(() => {
-    if (!loginChecking && user) {
+    if (user) {
       router.replace("/tasks");
     }
+
     if (!user) {
       // router.relo();
     }
@@ -45,16 +46,24 @@ const LoginPage = () => {
 
     try {
       const res = await userLogin(data).unwrap();
-      console.log(res);
 
       if (res.accessToken) {
         toast.success("Successfully logged in");
-        setUser(res?.user);
-        setSpinning(false);
-        setLoginChecking(false);
         storeUserInfo({ accessToken: res.accessToken });
-        router.replace("/tasks");
-        window.location.reload();
+        let user = { ...res.user, token: res.accessToken };
+
+        setUser(user || res.user);
+        console.log(user, "user");
+        // setLoginChecking(false);
+        router.push("/tasks");
+        setSpinning(false);
+
+        // window.location.reload();
+        // setTimeout(function () {
+        //   // Code to be executed after 2 seconds
+
+        //   console.log("Two seconds have passed!");
+        // }, 2000);
       }
     } catch (err: any) {
       console.log(err);
@@ -104,10 +113,10 @@ const LoginPage = () => {
     >
       <Spin spinning={spinning} fullscreen />
 
-      <Col  data-aos="fade-up-right" sm={12} md={16} lg={10}>
+      <Col data-aos="fade-up-right" sm={12} md={16} lg={10}>
         <Image src={loginImage} alt="login-image" width={500} />
       </Col>
-      <Col  data-aos="fade-up-left" sm={12} md={8} lg={8}>
+      <Col data-aos="fade-up-left" sm={12} md={8} lg={8}>
         <Form
           submitHandler={onSubmit as SubmitHandler<any>}
           resolver={yupResolver(LoginSchema)}
