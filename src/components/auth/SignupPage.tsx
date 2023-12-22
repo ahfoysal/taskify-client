@@ -17,6 +17,7 @@ import { useLoginMutation, useSignUpMutation } from "@/redux/api/authApi";
 import { LoginSchema, SignUpSchema } from "@/schemas/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import UploadImage from "../forms/UploadImage";
 
 type FormValues = {
   email: string;
@@ -44,6 +45,7 @@ const SignUpPage = () => {
     setSpinning(true);
 
     try {
+      console.log(data);
       const res = await signUp(data).unwrap();
       console.log(res);
 
@@ -78,15 +80,15 @@ const SignUpPage = () => {
       }
     );
     if (response?.data?.data?.accessToken) {
-      toast.success("Successfully logged in");
-      router.push("/tasks");
-      setSpinning(false);
+      // toast.success("Successfully logged in");
+      // router.push("/tasks");
+      // setSpinning(false);
 
-      setUser(response?.data?.data?.user);
+      // setUser(response?.data?.data?.user);
 
-      storeUserInfo({ accessToken: response?.data?.data?.accessToken });
+      // storeUserInfo({ accessToken: response?.data?.data?.accessToken });
 
-      console.log(response?.data);
+      console.log(response?.data?.data, 'data');
     } else {
       setSpinning(false);
     }
@@ -96,6 +98,7 @@ const SignUpPage = () => {
   return (
     <Row
       justify={"center"}
+      className="login-reverse py-20 md:py-0"
       align={"middle"}
       style={{
         minHeight: "100vh",
@@ -103,10 +106,10 @@ const SignUpPage = () => {
     >
       <Spin spinning={spinning} fullscreen />
 
-      <Col sm={12} md={16} lg={10}>
+      <Col data-aos="fade-up-right" sm={12} md={16} lg={10}>
         <Image src={loginImage} alt="login-image" width={500} />
       </Col>
-      <Col sm={12} md={8} lg={8}>
+      <Col data-aos="fade-up-left" sm={12} md={8} lg={8}>
         <Form
           submitHandler={onSubmit as SubmitHandler<any>}
           resolver={yupResolver(SignUpSchema)}
@@ -118,6 +121,10 @@ const SignUpPage = () => {
               <span className="text-[#D34936]">Sign In</span>
             </Link>
           </p>
+
+          <div className=" w-full flex justify-center items-center">
+            <UploadImage name="avatar" />
+          </div>
           <div>
             <FormInput
               label="Name"

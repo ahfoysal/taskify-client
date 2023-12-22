@@ -20,11 +20,11 @@ import { findBoardSectionContainer, initializeBoard } from "./utils/board";
 import { BoardSections as BoardSectionsType } from "./types";
 import { getTaskById } from "./utils/tasks";
 import { Card, Col, Grid, Row, Spin } from "antd";
-import BoardSection from "./BoardSection";
-import { useGetTasksQuery, useUpdateTaskMutation } from "@/redux/api/task";
+import {  useUpdateTaskMutation } from "@/redux/api/task";
 import toast from "react-hot-toast";
+import TaskSection from "./TaskSection";
 
-const BoardSectionList = ({ data }: { data: any }) => {
+const TasksContainer = ({ data }: { data: any }) => {
   const tasks = data;
 
   const initialBoardSections = initializeBoard(data);
@@ -179,8 +179,8 @@ const BoardSectionList = ({ data }: { data: any }) => {
         >
           {Object.keys(boardSections).map((boardSectionKey) => {
             return (
-              <Col span={12} key={boardSectionKey}>
-                <BoardSection
+              <Col md={12} sm={24} lg={12} key={boardSectionKey}>
+                <TaskSection
                   id={boardSectionKey}
                   title={boardSectionKey}
                   tasks={boardSections[boardSectionKey]}
@@ -197,4 +197,4 @@ const BoardSectionList = ({ data }: { data: any }) => {
   );
 };
 
-export default BoardSectionList;
+export default TasksContainer;

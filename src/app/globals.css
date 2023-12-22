@@ -16,3 +16,9 @@ body {
 .ant-card-head-title{
   white-space: pre-wrap !important;
 }
+@media only screen and (max-width: 600px) {
+  .login-reverse {
+   flex-direction: column-reverse !important;
+  }
+
+}

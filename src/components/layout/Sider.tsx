@@ -17,7 +17,7 @@ const SideBar = ({
   return (
     <Sider
       breakpoint="lg"
-      collapsedWidth="80px"
+      collapsedWidth="60px"
       collapsible
       collapsed={collapsed}
       // width={280}
@@ -30,6 +30,7 @@ const SideBar = ({
         position: "sticky",
         left: 0,
         top: 0,
+        paddingTop: "50px",
         background: "#121219",
         bottom: 0,
         minHeight: "100vh",

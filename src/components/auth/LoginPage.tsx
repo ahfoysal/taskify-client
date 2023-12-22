@@ -96,6 +96,7 @@ const LoginPage = () => {
   return (
     <Row
       justify={"center"}
+      className="login-reverse py-20 md:py-0"
       align={"middle"}
       style={{
         minHeight: "100vh",
@@ -103,10 +104,10 @@ const LoginPage = () => {
     >
       <Spin spinning={spinning} fullscreen />
 
-      <Col sm={12} md={16} lg={10}>
+      <Col  data-aos="fade-up-right" sm={12} md={16} lg={10}>
         <Image src={loginImage} alt="login-image" width={500} />
       </Col>
-      <Col sm={12} md={8} lg={8}>
+      <Col  data-aos="fade-up-left" sm={12} md={8} lg={8}>
         <Form
           submitHandler={onSubmit as SubmitHandler<any>}
           resolver={yupResolver(LoginSchema)}

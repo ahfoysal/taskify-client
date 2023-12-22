@@ -11,13 +11,13 @@ import { Card, Col, Row } from "antd";
 import { Task } from "./types";
 import { findTitleByKey } from "./constance";
 
-type BoardSectionProps = {
+type TaskSectionProps = {
   id: string;
   title: string;
   tasks: Task[];
 };
 
-const BoardSection = ({ id, title, tasks }: BoardSectionProps) => {
+const TaskSection = ({ id, title, tasks }: TaskSectionProps) => {
   const { setNodeRef } = useDroppable({
     id,
   });
@@ -48,4 +48,4 @@ const BoardSection = ({ id, title, tasks }: BoardSectionProps) => {
   );
 };
 
-export default BoardSection;
+export default TaskSection;

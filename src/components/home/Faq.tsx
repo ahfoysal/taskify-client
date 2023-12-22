@@ -85,9 +85,9 @@ const Faq: React.FC = () => {
           Seamlessly use your preferred tools for unified work, start to finish.
         </h1>
       </div>
-      <div className="mt-10 max-w-4xl mx-auto w-full gap-4">
+      <div   data-aos="zoom-out-up" className="mt-10 max-w-4xl mx-auto w-full gap-4">
         <Collapse
-           data-aos="zoom-out-up"
+         
           size="large"
           expandIconPosition="end"
           items={items}

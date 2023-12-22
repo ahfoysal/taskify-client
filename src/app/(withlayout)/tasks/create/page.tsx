@@ -74,7 +74,7 @@ const CreateTaskPage = () => {
               />
             </div>
           </Col>
-          <Col span={8}>
+          <Col sm={12} md={8} lg={8}>
             <div>
               <FormSelect
                 label="Priority"
@@ -85,7 +85,7 @@ const CreateTaskPage = () => {
               />
             </div>
           </Col>
-          <Col span={8}>
+          <Col sm={12} md={8} lg={8}>
             <div>
               <FormDatePicker
                 label="Starst At"
@@ -96,7 +96,7 @@ const CreateTaskPage = () => {
               />
             </div>
           </Col>
-          <Col span={8}>
+          <Col md={8} sm={12} lg={8}>
             <div>
               <FormDatePicker
                 label="Ends At"
@@ -117,7 +117,7 @@ const CreateTaskPage = () => {
               />
             </div>
           </Col>
-          <Col span={3}>
+          <Col xs={12} sm={12} md={5} lg={3}>
             <Button
               style={{ width: "100%", background: "blue", color: "white" }}
               size="large"
@@ -126,7 +126,7 @@ const CreateTaskPage = () => {
               Create
             </Button>
           </Col>
-          <Col span={3}>
+          <Col xs={12} sm={12} md={5} lg={3}>
             <Button style={{ width: "100%" }} size="large" htmlType="submit">
               Cancel
             </Button>
