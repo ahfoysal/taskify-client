@@ -5,6 +5,7 @@ import { AuthContext } from "@/hooks/AuthContextProvider";
 import UserPopover from "../ui/UserPopover";
 import Link from "next/link";
 import Image from "next/image";
+import FooterComponent from "./Footer";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,7 +33,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Layout>
-      <Header
+  <div className="">
+  <Header
         style={{
           display: "flex",
           background: "#121219",
@@ -41,7 +43,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           paddingBottom: "20px",
         }}
       >
-        <Row
+      <div className="max-w-7xl w-[93%] mx-auto ">
+      <Row
           style={{ width: "100%" }}
           align={"middle"}
           justify={"space-between"}
@@ -90,13 +93,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             </Col>
           )}
         </Row>
+      </div>
       </Header>
       <Content style={{ padding: "0 48px" }}>
         <div>{children}</div>
       </Content>
-      <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2023 Created by Ant UED
-      </Footer>
+      <FooterComponent />
+  </div>
     </Layout>
   );
 };

@@ -115,7 +115,7 @@ const SignUpPage = () => {
           <p className="mb-10">
             Already have an account?
             <Link href="/login">
-              <span className="text-[#8321FF]">Sign In</span>
+              <span className="text-[#D34936]">Sign In</span>
             </Link>
           </p>
           <div>
@@ -156,7 +156,7 @@ const SignUpPage = () => {
           <Button
             style={{
               width: "100%",
-              backgroundColor: "#8624FF",
+              backgroundColor: "#D34936",
               color: "white",
             }}
             size="large"

@@ -115,7 +115,7 @@ const LoginPage = () => {
           <p className="mb-10">
             Don&apos;t have an account?{" "}
             <Link href="/register">
-              <span className="text-[#8321FF]">Sign up</span>
+              <span className="text-[#D34936]">Sign up</span>
             </Link>
           </p>
           <div>
@@ -143,7 +143,7 @@ const LoginPage = () => {
           <Button
             style={{
               width: "100%",
-              backgroundColor: "#8624FF",
+              backgroundColor: "#D34936",
               color: "white",
             }}
             size="large"

@@ -12,3 +12,7 @@ body {
   /* background: #09090f; */
   /* color: white; */
 }
+
+.ant-card-head-title{
+  white-space: pre-wrap !important;
+}
