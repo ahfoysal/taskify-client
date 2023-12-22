@@ -1,5 +1,8 @@
-import Image from "next/image";
+import Banner from "@/components/home/Banner";
 
-export default function Home() {
-  return <div>Root</div>;
+
+const  Page =()=> {
+  return <div><Banner/></div>;
 }
+
+export default Page 

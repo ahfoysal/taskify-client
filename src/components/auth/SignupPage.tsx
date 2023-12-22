@@ -127,7 +127,11 @@ const SignUpPage = () => {
               size="large"
             />
           </div>
-          <div>
+          <div
+            style={{
+              margin: "16px 0",
+            }}
+          >
             <FormInput
               label="Email"
               placeholder="Please Enter Your Email"
