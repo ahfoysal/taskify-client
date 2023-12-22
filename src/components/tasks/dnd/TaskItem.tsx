@@ -5,12 +5,11 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import {
- 
   useHandleDeleteTaskMutation,
   useUpdateTaskMutation,
 } from "@/redux/api/task";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { useEffect } from "react";
 
@@ -25,13 +24,25 @@ const TaskItem = ({ task }: TaskItemProps) => {
   const priorityColor = getColorByPriority(task.priority);
   const router = useRouter();
   const [updateTask] = useUpdateTaskMutation();
+  const paths = usePathname();
+  const pathNames = paths.split("/").filter((path) => path);
   useEffect(() => {
     if (isSuccess) {
       console.log("fixex v01");
-      router.refresh();
+
+      if (pathNames[pathNames.length - 1] === "tasks") {
+        console.log("task");
+
+        window.location.reload();
+      }
+      if (pathNames[pathNames.length - 1] === "task") {
+        console.log("tasks");
+
+        window.location.reload();
+      }
       toast.success("Task deleted successfully");
     }
-  }, [data, isSuccess, router]);
+  }, [data, isSuccess, router, pathNames]);
   return (
     <Badge.Ribbon text={task.priority} color={priorityColor}>
       <Card
@@ -48,8 +59,6 @@ const TaskItem = ({ task }: TaskItemProps) => {
               deleteTask(task.id);
               console.log("deleted1");
 
-              // window.location.reload();
-
               updateTask({ id: task.id, data: null });
             }}
             key="setting"
@@ -58,7 +67,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
       >
         {task.description}
         <div className="flex justify-end items-center ">
-          <p className="text-red-900">
+          <p className="text-red-500">
             Deadline : {dayjs(task.endsAt).format("ddd, DD MMM")}
           </p>
         </div>

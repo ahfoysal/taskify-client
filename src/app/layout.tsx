@@ -23,7 +23,10 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className="text-black min-h-screen overflow-x-hidden  ">
+        <body
+          suppressHydrationWarning={true}
+          className="text-black min-h-screen overflow-x-hidden  "
+        >
           <Toaster position="bottom-left" />
 
           {/* <NextNProgress

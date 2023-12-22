@@ -14,7 +14,7 @@ const TasksPage = () => {
 
   return(
     <div>
-   <div> <Link href={'/tasks/create'}> <Button size="large"> Create Task</Button></Link></div>
+   <div className="w-full flex justify-end items-center my-5"> <Link href={'/tasks/create'}> <Button size="large"> Create Task</Button></Link></div>
     <TasksContainer data={data} />
   </div>
   );

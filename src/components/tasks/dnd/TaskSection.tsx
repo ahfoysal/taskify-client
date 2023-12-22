@@ -21,9 +21,19 @@ const TaskSection = ({ id, title, tasks }: TaskSectionProps) => {
   const { setNodeRef } = useDroppable({
     id,
   });
+  const backgroundColor = title === 'done' ? 'green' : title === 'ongoing' ? '#D34936' : '#8320FF';
 
   return (
-    <Card title={findTitleByKey(title)}>
+    <Card
+      title={<p className="text-white">{findTitleByKey(title)}</p>}
+      style={{
+       
+      }}
+      headStyle={{
+        background: backgroundColor,
+ 
+      }}
+    >
       <SortableContext
         id={id}
         items={tasks}
