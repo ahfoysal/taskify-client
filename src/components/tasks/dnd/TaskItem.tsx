@@ -5,8 +5,7 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import {
-  useDeleteTaskMutation,
-  useGetTasksQuery,
+ 
   useHandleDeleteTaskMutation,
   useUpdateTaskMutation,
 } from "@/redux/api/task";
@@ -28,7 +27,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
   const [updateTask] = useUpdateTaskMutation();
   useEffect(() => {
     if (isSuccess) {
-      console.log("useEffect");
+      console.log("fixex v01");
       router.refresh();
       toast.success("Task deleted successfully");
     }

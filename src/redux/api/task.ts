@@ -16,11 +16,18 @@ const taskApi = baseApi.injectEndpoints({
         method: "DELETE",
         data: payload,
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: ["Task"],
     }),
     getTasks: build.query({
       query: () => ({
         url: "/tasks/user",
+        method: "GET",
+      }),
+      providesTags: ["Task"],
+    }),
+    getSingleTask: build.query({
+      query: (id) => ({
+        url: `/tasks/${id}`,
         method: "GET",
       }),
       providesTags: ["Task"],
@@ -33,20 +40,6 @@ const taskApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["Task"],
     }),
-    deleteTask: build.mutation({
-      query: (id) => ({
-        url: `/tasks/${id}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Task"],
-    }),
-    getSingleTask: build.query({
-      query: (id) => ({
-        url: `/tasks/${id}`,
-        method: "GET",
-      }),
-      providesTags: ["Task"],
-    }),
   }),
 });
 
@@ -55,6 +48,5 @@ export const {
   useGetTasksQuery,
   useUpdateTaskMutation,
   useGetSingleTaskQuery,
-  useDeleteTaskMutation,
-  useHandleDeleteTaskMutation
+  useHandleDeleteTaskMutation,
 } = taskApi;
