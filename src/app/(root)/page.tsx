@@ -6,7 +6,7 @@ import Promo from "@/components/home/Promo";
 
 const Page = () => {
   return (
-    <div className="max-w-7xl w-[93%] mx-auto"> 
+    <div className="max-w-7xl w-[93%] mx-auto n">
       <BannerComponent />
       <Promo />
       <Explore />

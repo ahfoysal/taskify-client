@@ -5,9 +5,15 @@ import Link from "next/link";
 
 const BannerComponent = () => {
   return (
-    <div className="min-h-[600px] flex justify-center  items-center md:flex-row flex-col gap-4 ">
-      <div className=" lg:max-w-xl mx-auto text-center md:text-left flex flex-col gap-4">
-        <h1 className="text-5xl font-bold">
+    <div
+     
+      className="min-h-[600px] my-20 lg:my-0 flex justify-center  items-center lg:flex-row flex-col gap-4 "
+    >
+      <div
+        data-aos="fade-up-right"
+        className=" lg:max-w-xl mx-auto text-center lg:text-left flex flex-col gap-4"
+      >
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Manage your task from your{" "}
           <span className="text-[#D34936]">Browser</span>
         </h1>
@@ -27,9 +33,15 @@ const BannerComponent = () => {
           </Button>
         </Link>
       </div>
-     <div>
-     <Image src={"/banner.png"  } className="w-full h-full" alt="banner" height={600} width={600} />
-     </div>
+      <div data-aos="fade-up-left">
+        <Image
+          src={"/banner.png"}
+          className="w-full h-full"
+          alt="banner"
+          height={600}
+          width={600}
+        />
+      </div>
     </div>
   );
 };

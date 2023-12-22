@@ -9,7 +9,7 @@ import Image from "next/image";
 const FooterComponent = () => {
   return (
     <footer className="  max-w-7xl w-[93%] mx-auto">
-      <div className="  py-10 gap-10 lg:gap-0   flex justify-between">
+      <div className="  py-10 gap-10 lg:gap-0   flex flex-col md:flex-row justify-between">
         <div className="md:flex-row flex-col flex gap-10 items-center">
           <Link
             href={"/"}
