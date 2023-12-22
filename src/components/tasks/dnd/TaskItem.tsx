@@ -58,7 +58,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
             onClick={() => {
               deleteTask(task.id);
               console.log("deleted1");
-
+              toast.loading("Deleting Task")
               updateTask({ id: task.id, data: null });
             }}
             key="setting"
