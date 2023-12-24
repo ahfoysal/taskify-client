@@ -79,13 +79,13 @@ const SignUpPage = () => {
       }
     );
     if (response?.data?.data?.accessToken) {
-      // toast.success("Successfully logged in");
-      // router.push("/tasks");
-      // setSpinning(false);
+      toast.success("Successfully logged in");
+      router.push("/tasks");
+      setSpinning(false);
 
-      // setUser(response?.data?.data?.user);
+      setUser(response?.data?.data?.user);
 
-      // storeUserInfo({ accessToken: response?.data?.data?.accessToken });
+      storeUserInfo({ accessToken: response?.data?.data?.accessToken });
 
       console.log(response?.data?.data, "data");
     } else {
